@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="VaultLens Privacy Policy — CS2 inventory Chrome extension. No data collection. No tracking." />
+  <title>VaultLens Privacy Policy</title>
+  <style>
+    /* ── Reset ───────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Tokens ──────────────────────────── */
+    :root {
+      --bg:         #0b0d14;
+      --bg-card:    #0f1117;
+      --bg-section: #111320;
+      --border:     #1e2130;
+      --border-hi:  #252840;
+      --accent:     #f97316;
+      --text:       #e2e8f0;
+      --muted:      #64748b;
+      --green:      #4ade80;
+      --red:        #f87171;
+      --gold:       #fbbf24;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont,
+        'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: color 0.15s; }
+    a:hover { color: #fb923c; text-decoration: underline; }
+
+    /* ── Layout ──────────────────────────── */
+    .page-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Header / Nav ────────────────────── */
+    .site-header {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .site-header__inner {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo__icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(249,115,22,0.35);
+    }
+
+    .logo__name {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .site-header__links {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .site-header__link {
+      font-size: 13px;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+
+    .site-header__link:hover { color: var(--text); text-decoration: none; }
+
+    /* ── Hero ────────────────────────────── */
+    .hero {
+      padding: 56px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .hero__eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+    }
+
+    .hero__title {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .hero__subtitle {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    .hero__meta {
+      display: flex;
+      gap: 24px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hero__meta-item {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .hero__meta-item strong {
+      color: var(--text);
+    }
+
+    /* ── TOC ─────────────────────────────── */
+    .toc {
+      background: var(--bg-section);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 48px;
+    }
+
+    .toc__title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+
+    .toc__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      counter-reset: toc;
+    }
+
+    .toc__list li {
+      counter-increment: toc;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .toc__list li::before {
+      content: counter(toc) ".";
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 700;
+      min-width: 18px;
+    }
+
+    .toc__list a {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .toc__list a:hover { color: var(--accent); }
+
+    /* ── Sections ────────────────────────── */
+    .section {
+      margin-bottom: 52px;
+      scroll-margin-top: 72px;
+    }
+
+    .section__number {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .section__title {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section__body {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    p strong { color: var(--text); }
+
+    /* ── Highlight box ───────────────────── */
+    .highlight-box {
+      background: var(--bg-section);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .highlight-box--green {
+      border-color: rgba(74,222,128,0.25);
+      background: rgba(74,222,128,0.04);
+    }
+
+    .highlight-box--orange {
+      border-color: rgba(249,115,22,0.25);
+      background: rgba(249,115,22,0.04);
+    }
+
+    .highlight-box__title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .highlight-box__title--green { color: var(--green); }
+    .highlight-box__title--orange { color: var(--accent); }
+
+    .highlight-box p { margin: 0; }
+
+    /* ── Data table ──────────────────────── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .data-table th {
+      background: var(--bg-section);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 10px 14px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .data-table tr:nth-child(even) td {
+      background: rgba(255,255,255,0.01);
+    }
+
+    .data-table td:first-child {
+      color: var(--text);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Status badges in table */
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .badge--green  { background: rgba(74,222,128,0.12); color: var(--green); }
+    .badge--red    { background: rgba(248,113,113,0.12); color: var(--red);  }
+    .badge--orange { background: rgba(249,115,22,0.12);  color: var(--accent); }
+    .badge--gray   { background: rgba(100,116,139,0.12); color: var(--muted); }
+
+    /* ── List styles ─────────────────────── */
+    .content-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-left: 0;
+    }
+
+    .content-list li {
+      font-size: 15px;
+      color: var(--muted);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .content-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 12px;
+      top: 3px;
+    }
+
+    .content-list li strong { color: var(--text); }
+
+    /* ── Code ────────────────────────────── */
+    code {
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 13px;
+      background: var(--bg-section);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      color: var(--accent);
+    }
+
+    /* ── Contact card ────────────────────── */
+    .contact-card {
+      background: var(--bg-section);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-card__title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .contact-card__item {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* ── Footer ──────────────────────────── */
+    .site-footer {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+    }
+
+    .site-footer__inner {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .site-footer__inner a { color: var(--muted); }
+    .site-footer__inner a:hover { color: var(--accent); text-decoration: none; }
+
+    /* ── Responsive ──────────────────────── */
+    @media (max-width: 600px) {
+      .hero__title  { font-size: 26px; }
+      .page-wrap    { padding: 0 16px 60px; }
+      .data-table   { font-size: 12px; }
+      .data-table td, .data-table th { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Site Header ───────────────────────────────────── -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="#" class="logo">
+        <div class="logo__icon"></div>
+        <span class="logo__name">VaultLens</span>
+      </a>
+      <nav class="site-header__links">
+        <a href="https://github.com/vaultlens/vaultlens" class="site-header__link" target="_blank" rel="noopener">
+          GitHub
+        </a>
+        <a href="https://github.com/vaultlens/vaultlens/issues" class="site-header__link" target="_blank" rel="noopener">
+          Support
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Main Content ──────────────────────────────────── -->
+  <main>
+    <div class="page-wrap">
+
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero__eyebrow">Legal Document</div>
+        <h1 class="hero__title">Privacy Policy</h1>
+        <p class="hero__subtitle">
+          VaultLens is built on a simple principle: your data is yours.
+          We collect nothing, store nothing on external servers, and track nothing.
+          This policy explains exactly how VaultLens handles your information.
+        </p>
+        <div class="hero__meta">
+          <div class="hero__meta-item">
+            <strong>Effective Date:</strong> May 14, 2026
+          </div>
+          <div class="hero__meta-item">
+            <strong>Last Updated:</strong> May 14, 2026
+          </div>
+          <div class="hero__meta-item">
+            <strong>Version:</strong> 1.0.0
+          </div>
+        </div>
+      </div>
+
+      <!-- TL;DR highlight box -->
+      <div class="highlight-box highlight-box--green" style="margin-bottom:48px;">
+        <div class="highlight-box__title highlight-box__title--green">
+          ✓ &nbsp;The Short Version
+        </div>
+        <p>
+          VaultLens <strong>does not collect, transmit, or store any personal data on any external server</strong>.
+          There are no VaultLens servers. All data (prices, float values, settings, API keys) lives
+          exclusively on your own device in Chrome's local storage. All network requests go directly
+          from your browser to publicly documented third-party APIs (PricEmpire, Skinport, CSGOFloat).
+        </p>
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="toc">
+        <div class="toc__title">Contents</div>
+        <ol class="toc__list">
+          <li><a href="#scope">Scope of This Policy</a></li>
+          <li><a href="#data-collected">Data We Do and Do Not Collect</a></li>
+          <li><a href="#local-storage">Local Storage Usage</a></li>
+          <li><a href="#third-party">Third-Party API Requests</a></li>
+          <li><a href="#permissions">Chrome Permission Usage</a></li>
+          <li><a href="#api-keys">API Key Security</a></li>
+          <li><a href="#open-source">Open Source Transparency</a></li>
+          <li><a href="#children">Children's Privacy</a></li>
+          <li><a href="#changes">Changes to This Policy</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </div>
+
+      <!-- Section 1 -->
+      <section class="section" id="scope">
+        <div class="section__number">Section 1</div>
+        <h2 class="section__title">Scope of This Policy</h2>
+        <div class="section__body">
+          <p>
+            This Privacy Policy applies to the <strong>VaultLens Chrome Extension</strong>
+            (version 1.0.0 and later), available on the Chrome Web Store and as an open-source
+            project on GitHub. It describes how VaultLens handles information when you use
+            the extension on Steam inventory and trade offer pages.
+          </p>
+          <p>
+            This policy does <strong>not</strong> apply to third-party services that VaultLens
+            fetches data from (PricEmpire, Skinport, CSGOFloat, CSFloat). Those services have
+            their own privacy policies, which you should review independently. Links are provided
+            in <a href="#third-party">Section 4</a>.
+          </p>
+          <p>
+            This policy does <strong>not</strong> apply to the Steam platform itself.
+            VaultLens reads publicly available data from Steam pages that you are already
+            viewing in your browser; it does not interact with Steam's servers beyond what
+            your browser already does during normal browsing.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 2 -->
+      <section class="section" id="data-collected">
+        <div class="section__number">Section 2</div>
+        <h2 class="section__title">Data We Do and Do Not Collect</h2>
+        <div class="section__body">
+
+          <div class="highlight-box highlight-box--green">
+            <div class="highlight-box__title highlight-box__title--green">
+              ✓ &nbsp;Data VaultLens Does NOT Collect
+            </div>
+            <ul class="content-list">
+              <li><strong>No personal information</strong> — no name, email, Steam username, or account ID is ever sent anywhere by VaultLens.</li>
+              <li><strong>No inventory data transmission</strong> — your item list, prices, and float values are never sent to any VaultLens-operated server (none exist).</li>
+              <li><strong>No browsing history</strong> — VaultLens does not access, read, or transmit your browser history.</li>
+              <li><strong>No telemetry or analytics</strong> — there is no usage tracking, error reporting, crash reporting, or analytics of any kind.</li>
+              <li><strong>No advertising data</strong> — VaultLens is not monetized through advertising. No advertising SDKs or tracking pixels exist in the codebase.</li>
+              <li><strong>No cookies</strong> — VaultLens does not read or write any cookies.</li>
+              <li><strong>No clipboard reading</strong> — VaultLens only writes to the clipboard (on explicit user action). It never reads clipboard contents.</li>
+              <li><strong>No Steam account credentials</strong> — VaultLens never asks for, reads, or handles your Steam password or session tokens.</li>
+            </ul>
+          </div>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Data Type</th>
+                <th>Collected?</th>
+                <th>Sent Externally?</th>
+                <th>Where Stored</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Steam Username</td>
+                <td><span class="badge badge--green">Never</span></td>
+                <td><span class="badge badge--green">Never</span></td>
+                <td>N/A</td>
+              </tr>
+              <tr>
+                <td>SteamID64</td>
+                <td><span class="badge badge--orange">Detected from page</span></td>
+                <td><span class="badge badge--green">Never</span></td>
+                <td>Local only (session)</td>
+              </tr>
+              <tr>
+                <td>Inventory item list</td>
+                <td><span class="badge badge--orange">Read from page</span></td>
+                <td><span class="badge badge--green">Never</span></td>
+                <td>Not persisted</td>
+              </tr>
+              <tr>
+                <td>Float / pattern data</td>
+                <td><span class="badge badge--orange">Fetched per item</span></td>
+                <td><span class="badge badge--orange">To CSGOFloat only</span></td>
+                <td>Local cache (indefinite)</td>
+              </tr>
+              <tr>
+                <td>Item prices</td>
+                <td><span class="badge badge--orange">Fetched globally</span></td>
+                <td><span class="badge badge--orange">To PricEmpire or Skinport</span></td>
+                <td>Local cache (1 hour)</td>
+              </tr>
+              <tr>
+                <td>PricEmpire API Key</td>
+                <td><span class="badge badge--orange">User-entered</span></td>
+                <td><span class="badge badge--orange">To PricEmpire only</span></td>
+                <td>chrome.storage.local</td>
+              </tr>
+              <tr>
+                <td>User Settings</td>
+                <td><span class="badge badge--orange">User-configured</span></td>
+                <td><span class="badge badge--green">Never</span></td>
+                <td>chrome.storage.local</td>
+              </tr>
+              <tr>
+                <td>Browsing History</td>
+                <td><span class="badge badge--green">Never</span></td>
+                <td><span class="badge badge--green">Never</span></td>
+                <td>N/A</td>
+              </tr>
+              <tr>
+                <td>Crash / Error Reports</td>
+                <td><span class="badge badge--green">Never</span></td>
+                <td><span class="badge badge--green">Never</span></td>
+                <td>N/A</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 3 -->
+      <section class="section" id="local-storage">
+        <div class="section__number">Section 3</div>
+        <h2 class="section__title">Local Storage Usage</h2>
+        <div class="section__body">
+          <p>
+            VaultLens uses <code>chrome.storage.local</code> — Chrome's local-only extension
+            storage API — to persist data between sessions. This storage is:
+          </p>
+          <ul class="content-list">
+            <li><strong>Local only</strong> — it is never synced to Google's servers (we use <code>local</code>, not <code>sync</code>).</li>
+            <li><strong>Scoped to VaultLens</strong> — no other extension or website can access it.</li>
+            <li><strong>Under your control</strong> — you can clear it at any time from the Settings tab in the VaultLens popup, or by uninstalling the extension.</li>
+          </ul>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Storage Key</th>
+                <th>Contents</th>
+                <th>TTL</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>vl_price_cache</code></td>
+                <td>Item name → price mapping from PricEmpire or Skinport</td>
+                <td>1 hour</td>
+                <td>Avoid redundant API requests; instant price display</td>
+              </tr>
+              <tr>
+                <td><code>vl_price_cache_ts</code></td>
+                <td>Unix timestamp of last price fetch</td>
+                <td>1 hour</td>
+                <td>Cache TTL enforcement</td>
+              </tr>
+              <tr>
+                <td><code>vl_float_cache</code></td>
+                <td>assetid → float/pattern data (floatvalue, paintseed, paintindex, stickers)</td>
+                <td>Permanent</td>
+                <td>Float values never change; avoids re-fetching</td>
+              </tr>
+              <tr>
+                <td><code>vl_settings</code></td>
+                <td>Pricing mode, API key, display toggle states</td>
+                <td>Permanent</td>
+                <td>User preferences persistence</td>
+              </tr>
+              <tr>
+                <td><code>vl_own_steamid</code></td>
+                <td>Your SteamID64 (detected from profile page)</td>
+                <td>Permanent</td>
+                <td>Detect own inventory for trade link button</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>
+            To delete all VaultLens local data, click <strong>Settings → Clear All Cache</strong>
+            in the VaultLens popup, or uninstall the extension (Chrome automatically removes
+            extension storage on uninstall).
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 4 -->
+      <section class="section" id="third-party">
+        <div class="section__number">Section 4</div>
+        <h2 class="section__title">Third-Party API Requests</h2>
+        <div class="section__body">
+          <p>
+            VaultLens makes outbound HTTPS requests to four third-party APIs.
+            These requests go <strong>directly from your browser</strong> — they are not
+            proxied through any VaultLens server. You can verify this by inspecting
+            network requests in Chrome DevTools.
+          </p>
+
+          <div class="highlight-box highlight-box--orange">
+            <div class="highlight-box__title highlight-box__title--orange">
+              ⚠️ &nbsp;What Third-Party Services May See
+            </div>
+            <p>
+              Each API request includes your IP address (unavoidable for any internet request)
+              and the specific data described below. VaultLens cannot control what these services
+              do with that information. Please review their privacy policies before use.
+            </p>
+          </div>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>When Used</th>
+                <th>Data Sent</th>
+                <th>Privacy Policy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PricEmpire</td>
+                <td>PricEmpire mode only; hourly</td>
+                <td>Your API key (as URL query param); no other personal data</td>
+                <td><a href="https://pricempire.com/privacy" target="_blank" rel="noopener">pricempire.com/privacy</a></td>
+              </tr>
+              <tr>
+                <td>Skinport</td>
+                <td>Skinport mode only; hourly</td>
+                <td>No authentication. Request is anonymous. Only app_id=730 and currency=USD are sent.</td>
+                <td><a href="https://skinport.com/privacy" target="_blank" rel="noopener">skinport.com/privacy</a></td>
+              </tr>
+              <tr>
+                <td>CSGOFloat (api.csgofloat.com)</td>
+                <td>Per inventory item with a float; once then cached</td>
+                <td>Steam inspect link for the item (publicly derivable from inventory data). No authentication. If the link doesn't work, try the next one.</td>
+                <td><a href="https://csgofloat.com/privacy" target="_blank" rel="noopener">csgofloat.com/privacy</a></td>
+              </tr>
+              <tr>
+                <td>CSFloat (csfloat.com)</td>
+                <td>PricEmpire mode; Doppler knives only</td>
+                <td>Item market hash name and paint_index. No authentication.</td>
+                <td><a href="https://csfloat.com/legal/privacy-policy" target="_blank" rel="noopener">https://csfloat.com/legal/privacy-policy</a></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>
+            The Steam inspect link sent to CSGOFloat contains the item's <code>assetid</code>
+            and your <code>steamid</code> (if browsing your own inventory). This is the same
+            information that is publicly visible to anyone who views your Steam inventory.
+            If your inventory is set to private, VaultLens cannot fetch float data for your items.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 5 -->
+      <section class="section" id="permissions">
+        <div class="section__number">Section 5</div>
+        <h2 class="section__title">Chrome Permission Usage</h2>
+        <div class="section__body">
+          <p>
+            VaultLens requests the minimum permissions necessary to function.
+            The full justification for each permission is available in the
+            <a href="https://github.com/vaultlens/vaultlens/blob/main/PERMISSIONS.md" target="_blank" rel="noopener">PERMISSIONS.md</a>
+            file in the repository. A summary:
+          </p>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Permission</th>
+                <th>Purpose</th>
+                <th>Privacy Impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>storage</code></td>
+                <td>Cache prices and settings locally</td>
+                <td><span class="badge badge--green">Local only</span></td>
+              </tr>
+              <tr>
+                <td><code>scripting</code></td>
+                <td>Inject overlays into Steam pages</td>
+                <td><span class="badge badge--green">Steam pages only</span></td>
+              </tr>
+              <tr>
+                <td><code>activeTab</code></td>
+                <td>Detect current page type in popup</td>
+                <td><span class="badge badge--green">Current tab only, on click</span></td>
+              </tr>
+              <tr>
+                <td><code>clipboardWrite</code></td>
+                <td>Copy SteamID64 / trade link / item list</td>
+                <td><span class="badge badge--green">Write only, on user action</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 6 -->
+      <section class="section" id="api-keys">
+        <div class="section__number">Section 6</div>
+        <h2 class="section__title">API Key Security</h2>
+        <div class="section__body">
+          <p>
+            If you use PricEmpire mode, you provide a PricEmpire API key. Here is exactly
+            how VaultLens handles it:
+          </p>
+          <ul class="content-list">
+            <li><strong>Stored locally</strong> in <code>chrome.storage.local</code> on your device only.</li>
+            <li><strong>Never logged, never displayed in plaintext</strong> in the UI (shown as a password field with optional reveal).</li>
+            <li><strong>Sent only to PricEmpire</strong> — directly from your browser as a query parameter in the price fetch request. VaultLens never sees this transmission; it goes browser → PricEmpire.</li>
+            <li><strong>Never sent to any other service</strong> — not to Skinport, CSGOFloat, CSFloat, or any other destination.</li>
+            <li><strong>Cleared on demand</strong> — use "Clear All Cache" in Settings, or uninstall the extension, to remove the stored key.</li>
+          </ul>
+          <p>
+            Your PricEmpire API key is a read-only key for pricing data. It cannot be used
+            to access your Steam account, make trades, or perform any account actions.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 7 -->
+      <section class="section" id="open-source">
+        <div class="section__number">Section 7</div>
+        <h2 class="section__title">Open Source Transparency</h2>
+        <div class="section__body">
+          <p>
+            VaultLens is fully open source under the MIT License. Every line of code
+            that runs in your browser — including all API calls, storage operations,
+            and DOM manipulations — is publicly auditable at:
+          </p>
+          <p>
+            <a href="https://github.com/vaultlens/vaultlens" target="_blank" rel="noopener">
+              github.com/vaultlens/vaultlens
+            </a>
+          </p>
+          <p>
+            You do not have to take our word for any of the privacy claims in this document.
+            The source code is the ground truth. If you find any discrepancy between this
+            policy and the code, please
+            <a href="https://github.com/vaultlens/vaultlens/issues" target="_blank" rel="noopener">file an issue</a>
+            immediately.
+          </p>
+          <p>
+            The extension is built without any bundler or obfuscation — the files you load
+            as an unpacked extension are identical to what you read on GitHub.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 8 -->
+      <section class="section" id="children">
+        <div class="section__number">Section 8</div>
+        <h2 class="section__title">Children's Privacy</h2>
+        <div class="section__body">
+          <p>
+            VaultLens is designed for use with the Steam platform, which requires users
+            to be at least 13 years of age per Steam's own Terms of Service.
+            VaultLens does not knowingly collect any information from any person.
+            Since we collect no information at all, there is no special category of
+            data collected from minors.
+          </p>
+          <p>
+            If you believe a minor has provided personal information to VaultLens in a
+            way not described in this policy, please contact us so we can investigate.
+            (In practice, this is impossible given the architecture described above,
+            but we take all such reports seriously.)
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 9 -->
+      <section class="section" id="changes">
+        <div class="section__number">Section 9</div>
+        <h2 class="section__title">Changes to This Policy</h2>
+        <div class="section__body">
+          <p>
+            If VaultLens ever adds features that require changes to this privacy policy
+            (for example, adding an optional cloud sync feature), we will:
+          </p>
+          <ul class="content-list">
+            <li>Update this page with a new "Last Updated" date.</li>
+            <li>Update the <strong>CHANGELOG.md</strong> in the GitHub repository with a clear description of what changed.</li>
+            <li>Increment the extension version number.</li>
+            <li>Post a notice in the GitHub repository's README and release notes.</li>
+          </ul>
+          <p>
+            We will never retroactively change this policy to permit data collection
+            that was not disclosed when you installed the extension. If we ever add
+            any data collection of any kind, it will be strictly opt-in.
+          </p>
+          <p>
+            The canonical version of this privacy policy is hosted at:
+            <a href="https://vaultlens.github.io/privacy" target="_blank" rel="noopener">
+              vaultlens.github.io/privacy
+            </a>
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 10 -->
+      <section class="section" id="contact">
+        <div class="section__number">Section 10</div>
+        <h2 class="section__title">Contact</h2>
+        <div class="section__body">
+          <p>
+            For privacy-related questions, concerns, or to report a potential
+            data handling issue:
+          </p>
+          <div class="contact-card">
+            <div class="contact-card__title">VaultLens Privacy Contact</div>
+            <div class="contact-card__item">
+              GitHub Issues:
+              <a href="https://github.com/vaultlens/vaultlens/issues" target="_blank" rel="noopener">
+                github.com/vaultlens/vaultlens/issues
+              </a>
+            </div>
+            <div class="contact-card__item">
+              Label your issue with: <code>privacy</code>
+            </div>
+            <div class="contact-card__item" style="margin-top:8px;font-size:13px;color:var(--muted);">
+              We aim to respond to privacy-related issues within 72 hours.
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /.page-wrap -->
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>
+        &copy; 2025 VaultLens &mdash;
+        <a href="https://github.com/vaultlens/vaultlens" target="_blank" rel="noopener">Open Source (MIT)</a>
+        &mdash;
+        <a href="https://github.com/vaultlens/vaultlens/blob/main/PERMISSIONS.md" target="_blank" rel="noopener">Permission Justifications</a>
+        &mdash;
+        Not affiliated with Valve Corporation or Steam.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
